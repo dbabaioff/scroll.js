@@ -2,7 +2,7 @@
 
 scroll.js is a small, cross-browser JavaScript library that can be used in web applications to manage the browser's scroll event.
 
-# Usage
+## Usage
 
 Load [jQuery](http://jquery.com/) and the scroll.js:
 
@@ -20,3 +20,7 @@ Scroll.add('scroll_1', function() {
 .on('scroll_1')
 .remove('scroll_2');
 ```
+
+## Author
+
+David Babaioff
