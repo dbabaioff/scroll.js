@@ -1,6 +1,6 @@
 # scroll.js
 
-scroll.js is a small, cross-browser JavaScript library that can be used in web applications to manage the *window* browser's scroll event.
+scroll.js is a small, cross-browser JavaScript library that can be used in web applications to manage the **window** browser's scroll event.
 
 Using John Resig's [flexible javascript events](http://ejohn.org/projects/flexible-javascript-events/).
 
