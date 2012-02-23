@@ -25,6 +25,12 @@ Scroll.bind('scroll_1', function() {
         // Your event handler code goes here.
     }
 });
+
+// OR
+// One or more space-separated keys
+Scroll.bind('scroll_1 scroll_2 scroll_3', function() {
+    // Your event handler code goes here.
+});
 ```
 
 Unbind an event handler to the "scroll" JavaScript event (based on a key).

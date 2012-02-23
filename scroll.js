@@ -40,20 +40,37 @@ var Scroll = (function (){
     Scroll = function() {};
     Scroll.prototype = {
         bind: function(keys, fn) {
-            // var key;
+             var key;
 
-            //if (typeof keys !== 'object') {
-                //keys = {fn: fn, on}
-            // }
-
-            // for (key in keys) {
-            //     items[key] = {fn: fn, on: true};
-            //}
+            if (typeof keys === 'object') {
+                for (key in keys) {
+                    items[key] = {fn: keys[key], on: true};
+                }
+            }
+            else if (typeof keys === 'string') {
+                keys = keys.split(' ');
+                for (var i = 0, length = keys.length; i < length; i++) {
+                    items[keys[i]] = {fn: fn, on: true};
+                }
+            }
 
             return this;
         },
         unbind: function(keys) {
-            delete items[keys];
+            var key;
+
+            if (typeof keys === 'undefined') { // Unbind all events
+                for (key in keys) {
+                    delete items[key];
+                }
+            }
+            else if (typeof keys === 'string') {
+                keys = keys.split(' ');
+                for (var i = 0, length = keys.length; i < length; i++) {
+                    delete items[keys[i]];
+                }
+            }
+
             return this;
         },
         // param is for internal usage only
