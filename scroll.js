@@ -60,7 +60,7 @@ var Scroll = (function (){
             var key;
 
             if (typeof keys === 'undefined') { // Unbind all events
-                for (key in keys) {
+                for (key in items) {
                     delete items[key];
                 }
             }
