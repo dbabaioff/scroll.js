@@ -64,3 +64,9 @@ Scroll.on('scroll_1').on('scroll_2');
 ## Author
 
 David Babaioff
+
+## License
+
+MIT licensed
+
+Copyright (c) 2012 David Babaioff
