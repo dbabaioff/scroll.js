@@ -1,10 +1,22 @@
 var Scroll = (function (){
     var Scroll,
         items = {},
+
+        // http://ejohn.org/projects/flexible-javascript-events/
+        addEvent = function(obj, type, fn) {
+            if (obj.attachEvent) {
+                obj['e' + type + fn] = fn;
+                obj[type + fn] = function(){ obj['e' + type + fn](window.event); }
+                obj.attachEvent('on' + type, obj[type + fn]);
+            }
+            else {
+                obj.addEventListener(type, fn, false);
+            }
+        },
         init = function() {
             var didScroll = false;
 
-            $(window).scroll(function() {
+            addEvent(window, 'scroll', function() {
                 didScroll = true;
             });
 
@@ -14,8 +26,8 @@ var Scroll = (function (){
 
                     var key;
                     for (key in items) {
-                        if (items[key]['isOn']) {
-                            items[key]['callback']();
+                        if (items[key].on) {
+                            items[key].fn();
                         }
                     }
                 }
@@ -27,32 +39,30 @@ var Scroll = (function (){
 
     Scroll = function() {};
     Scroll.prototype = {
-        add: function(key, callback) {
-            if (typeof callback !== 'function') {
-                throw Error('Invalid callback - Scroll');
-            }
+        bind: function(keys, fn) {
+            // var key;
 
-            items[key] = {callback: callback, isOn: true};
+            //if (typeof keys !== 'object') {
+                //keys = {fn: fn, on}
+            // }
+
+            // for (key in keys) {
+            //     items[key] = {fn: fn, on: true};
+            //}
+
             return this;
         },
-        remove: function(key) {
-            delete items[key];
+        unbind: function(keys) {
+            delete items[keys];
             return this;
         },
-        on: function(key) {
-            items[key]['isOn'] = true;
+        // param is for internal usage only
+        on: function(key, param) {
+            items[key].on = (typeof param !== 'undefined') ? param : true;
             return this;
         },
         off: function(key) {
-            items[key]['isOn'] = false;
-            return this;
-        },
-        inViewPort: function(element) {
-            var _window = $(window),
-                top = _window.scrollTop(),
-                fold = _window.height() + _window.scrollTop();
-
-            return (!(fold <= element.offset().top) && !(top >= element.offset().top + element.height()));
+            return this.on(key, false);
         }
     };
 
