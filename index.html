@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scroll.js : Scroll event manager" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Scroll.js</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/dbabaioff/scroll.js">View on GitHub</a>
+
+          <h1 id="project_title">Scroll.js</h1>
+          <h2 id="project_tagline">Scroll event manager</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/dbabaioff/scroll.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/dbabaioff/scroll.js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>scroll.js</h1>
+
+<p>scroll.js is a small, cross-browser JavaScript library that can be used in web applications to manage the <strong>window object's</strong> scroll event.</p>
+
+<p>Using John Resig's <a href="http://ejohn.org/projects/flexible-javascript-events/">flexible javascript events</a>.</p>
+
+<h2>Usage</h2>
+
+<p>Load scroll.js:</p>
+
+<pre><code>&lt;script src="scroll.js" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre>
+
+<h2>Bind/Unbind</h2>
+
+<p>Bind an event handler to the "scroll" JavaScript event (based on a key).</p>
+
+<div class="highlight">
+<pre><span class="nx">Scroll</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">'scroll_1'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Your event handler code goes here.</span>
+<span class="p">}).</span><span class="nx">bind</span><span class="p">({</span>
+    <span class="s1">'scroll_2'</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Your event handler code goes here.</span>
+    <span class="p">},</span>
+    <span class="s1">'scroll_3'</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Your event handler code goes here.</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// OR</span>
+<span class="c1">// One or more space-separated keys</span>
+<span class="nx">Scroll</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">'scroll_1 scroll_2 scroll_3'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Your event handler code goes here.</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>Unbind an event handler to the "scroll" JavaScript event (based on a key).</p>
+
+<div class="highlight">
+<pre><span class="c1">// Unbind all events.</span>
+<span class="nx">Scroll</span><span class="p">.</span><span class="nx">unbind</span><span class="p">();</span>
+
+<span class="c1">// Unbind a specific event handler.</span>
+<span class="nx">Scroll</span><span class="p">.</span><span class="nx">unbind</span><span class="p">(</span><span class="s1">'scroll_1'</span><span class="p">).</span><span class="nx">unbind</span><span class="p">(</span><span class="s1">'scroll_2'</span><span class="p">).</span><span class="nx">unbind</span><span class="p">(</span><span class="s1">'scroll_3'</span><span class="p">);</span>
+
+<span class="c1">// equivalent to...</span>
+<span class="c1">// One or more space-separated keys</span>
+<span class="nx">Scroll</span><span class="p">.</span><span class="nx">unbind</span><span class="p">(</span><span class="s1">'scroll_1 scroll_2 scroll_3'</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<h2>Turn on/off</h2>
+
+<p>Turn on/off an event handler.</p>
+
+<div class="highlight">
+<pre><span class="nx">Scroll</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">'scroll_1'</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s1">'scroll_2'</span><span class="p">);</span>
+
+<span class="nx">Scroll</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'scroll_1'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'scroll_2'</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<h2>TODO</h2>
+
+<ul>
+<li>Attach a handler (to scroll event) for any element in the page.</li>
+</ul><h2>Author</h2>
+
+<p>David Babaioff</p>
+
+<h2>License</h2>
+
+<p>MIT licensed</p>
+
+<p>Copyright (c) 2012 David Babaioff</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Scroll.js maintained by <a href="https://github.com/dbabaioff">dbabaioff</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
